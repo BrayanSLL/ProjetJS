@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Changer</title>
+</head>
+<body>
+  <div>
+    <button id="btn">Change Color</button>
+    <span class="color"></span>
+  </div>
+  <script>
+    const colors = [0, 0, 0, 0];
+    const btn = document.getElementById('btn');
+    const color = document.querySelector('.color');
+    var r = 0;
+    var g = 0;
+    var b = 0;
+    var a = 0;
+
+    function ChangeColor() {
+      r = getRandomInt(256); // Change 255 to 256 to include the maximum value.
+      g = getRandomInt(256);
+      b = getRandomInt(256);
+
+      // Update the background color with the new RGB values.
+      document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+      // Update the displayed color value.
+      color.textContent = `RGB: ${r}, ${g}, ${b}`;
+    }
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+
+    // Add an event listener to the button to call the ChangeColor function when clicked.
+    btn.addEventListener('click', ChangeColor);
+  </script>
+</body>
+</html>
